@@ -11,7 +11,7 @@ const displayRandomNumber = document.querySelector('.question'),
       btnNewGame = document.querySelector('.again'),
       enteredNumber = document.querySelector('.number-input');
 
-const texrMessage = {
+const textMessage = {
     startGame: 'Start playing',
     needMore: 'Need more!',
     needLess: 'Need less!',
@@ -45,20 +45,20 @@ function gameWasLost(text) {
 btnCheckInput.addEventListener('click', () => {
 
     if (score < 2){
-        gameWasLost(texrMessage.gameOver)
+        gameWasLost(textMessage.gameOver)
     } else {
 
         if(randomNumber === +enteredNumber.value) {
-            gameWasWin(texrMessage.win)
+            gameWasWin(textMessage.win)
             return;
         }
         
         if (enteredNumber.value < randomNumber) {
-            numberIsIncorrect(texrMessage.needMore);
+            numberIsIncorrect(textMessage.needMore);
         }
         
         if (enteredNumber.value > randomNumber) {
-            numberIsIncorrect(texrMessage.needLess);
+            numberIsIncorrect(textMessage.needLess);
         }
     }
 });
@@ -67,7 +67,7 @@ btnNewGame.addEventListener('click', () => {
 
     body.style.backgroundColor = 'black';
     displayRandomNumber.textContent = '???';
-    message.textContent = texrMessage.startGame;
+    message.textContent = textMessage.startGame;
     displayScore.textContent = '20';
     enteredNumber.value = '';
     randomNumber = random();
